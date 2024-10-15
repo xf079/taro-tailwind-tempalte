@@ -59,12 +59,11 @@ export const Button: FC<ButtonProps> = ({
   children,
   ...props
 }) => {
-  console.log(variant);
   return (
     <TaroButton
       disabled={disabled}
       className={cn(
-        buttonVariants({ variant, size, block, disabled, className }),
+        buttonVariants({ variant, size, block, disabled, className })
       )}
       {...props}
     >
