@@ -1,8 +1,8 @@
 import { View, Text } from '@tarojs/components';
 import { useLoad } from '@tarojs/taro';
-import { Button } from '@/components/button';
+import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import { cn } from '@/lib/utils';
+import { Transition } from '@/components/ui/transition';
 
 export default function Index() {
   const [open, setOpen] = useState(false);
@@ -16,12 +16,6 @@ export default function Index() {
       <View state-status='open' className='bg-red-600'>
         123
       </View>
-      <View
-        className={cn('fixed inset-0 bg-black/60',open ? 'animate-in fade-in-0':'animate-out fade-out-0')}
-        onClick={() => {
-          setOpen(false);
-        }}
-      />
       <View>123</View>
       <View>123</View>
       <View>123</View>
@@ -31,8 +25,14 @@ export default function Index() {
       <View>123</View>
       <View>123</View>
       <View>123</View>
-      <View>123</View>
-      <Button block disabled />
+      <View className='translate-y-full hidden'>123</View>
+      <Transition open={open} name='fade-up' timeout={500}>
+        <View className='bg-foreground fixed top-0 left-0 right-0 h-12'>
+          <Button variant='secondary' block>
+            Block secondary
+          </Button>
+        </View>
+      </Transition>
       <View className='flex flex-row justify-start items-center gap-2 flex-wrap p-2'>
         <Button
           block
@@ -58,7 +58,7 @@ export default function Index() {
           Block destructive
         </Button>
         <Button />
-        <Button variant='secondary' />
+        <Button variant='secondary' children='Secondary' />
         <Button variant='outline' />
         <Button variant='link' />
         <Button variant='destructive' />

@@ -3,6 +3,8 @@
   "rules": {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-    "import/no-commonjs": "off"
+    "import/no-commonjs": "off",
+    "react/no-children-prop": "off",
+    "@typescript-eslint/no-shadow":"off"
   }
 }
