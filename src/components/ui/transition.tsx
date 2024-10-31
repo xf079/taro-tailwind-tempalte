@@ -36,7 +36,7 @@ export interface TransitionProps {
         exit?: number | undefined;
       };
   /**
-   * By default the child component is mounted immediately along with the
+   * By default, the child component is mounted immediately along with the
    * parent Transition component. If you want to "lazy mount" the component on
    * the first `in={true}` you can set `mountOnEnter`. After the first enter
    * transition the component will stay mounted, even on "exited", unless you
@@ -45,7 +45,7 @@ export interface TransitionProps {
   mountOnEnter?: boolean | undefined;
 
   /**
-   * By default the child component stays mounted after it reaches the
+   * By default, the child component stays mounted after it reaches the
    * 'exited' state. Set `unmountOnExit` if you'd prefer to unmount the
    * component after it finishes exiting.
    */
@@ -96,57 +96,57 @@ export const Transition: FC<TransitionProps> = (props) => {
       case TransitionName.Fade:
         return {
           enter: 'opacity-0',
-          enterActive: `transition-opacity duration-300 opacity-100`,
-          exitActive: `transition-opacity duration-300 opacity-0`
+          enterActive: `transition-opacity duration-base opacity-100`,
+          exitActive: `transition-opacity duration-base opacity-0`
         };
       case TransitionName.FadeUp:
         return {
-          appear: 'translate-y-8 opacity-0',
-          enter: 'translate-y-8 opacity-0',
-          enterActive: `transition-all duration-300 translate-y-0! opacity-100!`,
-          exitActive: `transition-all duration-300 translate-y-8 opacity-0`
+          appear:'translate-y-full opacity-0',
+          enter: 'translate-y-full opacity-0',
+          enterActive: `transition-all duration-base translate-y-0 opacity-100`,
+          exitActive: `transition-all duration-base translate-y-full opacity-0`
         };
       case TransitionName.FadeDown:
         return {
           enter: '-translate-y-8 opacity-0',
-          enterActive: `transition-all duration-300 -translate-y-0 opacity-100`,
-          exitActive: `transition-all duration-300 translate-y-8 opacity-0`
+          enterActive: `transition-all duration-base -translate-y-0 opacity-100`,
+          exitActive: `transition-all duration-base translate-y-8 opacity-0`
         };
       case TransitionName.FadeLeft:
         return {
           enter: 'translate-x-8 opacity-0',
-          enterActive: `transition-all duration-300 translate-x-0 opacity-100`,
-          exitActive: `transition-all duration-300 translate-x-8 opacity-0`
+          enterActive: `transition-all duration-base translate-x-0 opacity-100`,
+          exitActive: `transition-all duration-base translate-x-8 opacity-0`
         };
       case TransitionName.FadeRight:
         return {
           enter: '-translate-x-8 opacity-0',
-          enterActive: `transition-all duration-300 -translate-x-0 opacity-100`,
-          exitActive: `transition-all duration-300 -translate-x-8 opacity-0`
+          enterActive: `transition-all duration-base -translate-x-0 opacity-100`,
+          exitActive: `transition-all duration-base -translate-x-8 opacity-0`
         };
       case TransitionName.SlideUp:
         return {
           enter: 'translate-y-full',
-          enterActive: `transition-all duration-300 translate-y-0`,
-          exitActive: `transition-all duration-300 translate-y-full`
+          enterActive: `transition-all duration-base translate-y-0`,
+          exitActive: `transition-all duration-base translate-y-full`
         };
       case TransitionName.SlideDown:
         return {
           enter: '-translate-y-full',
-          enterActive: `transition-all duration-300 -translate-y-0`,
-          exitActive: `transition-all duration-300 -translate-y-full`
+          enterActive: `transition-all duration-base -translate-y-0`,
+          exitActive: `transition-all duration-base -translate-y-full`
         };
       case TransitionName.SlideLeft:
         return {
           enter: 'translate-x-full',
-          enterActive: `transition-all duration-300 translate-x-0`,
-          exitActive: `transition-all duration-300 -translate-x-full`
+          enterActive: `transition-all duration-base translate-x-0`,
+          exitActive: `transition-all duration-base -translate-x-full`
         };
       case TransitionName.SlideRight:
         return {
           enter: '-translate-x-full',
-          enterActive: `transition-all duration-300 -translate-x-0`,
-          exitActive: `transition-all duration-300 -translate-x-full`
+          enterActive: `transition-all duration-base -translate-x-0`,
+          exitActive: `transition-all duration-base -translate-x-full`
         };
       default:
         return {
@@ -156,14 +156,20 @@ export const Transition: FC<TransitionProps> = (props) => {
         };
     }
   }, [name]);
+  console.log(classNames);
   return (
     <CSSTransition
       in={open}
       timeout={timeout}
-      classNames={classNames}
-      appear
+      style={`--duration: ${timeout}ms`}
+      classNames={{
+        appear: ' translate-y-full opacity-0',
+        appearActive: 'transition-all ease-linear duration-base translate-y-0 opacity-100',
+        enter: 'translate-y-full opacity-0',
+        enterActive: `transition-all ease-linear duration-base translate-y-0 opacity-100`,
+        exitActive: `transition-all ease-linear duration-base translate-y-full opacity-0`
+      }}
       unmountOnExit
-      mountOnEnter
       {...restProps}
       children={children}
     />

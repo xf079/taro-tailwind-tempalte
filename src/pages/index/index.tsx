@@ -2,6 +2,7 @@ import { View, Text } from '@tarojs/components';
 import { useLoad } from '@tarojs/taro';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
+// import { Backdrop } from '@/components/ui/backdrop';
 import { Transition } from '@/components/ui/transition';
 
 export default function Index() {
@@ -26,8 +27,12 @@ export default function Index() {
       <View>123</View>
       <View>123</View>
       <View className='translate-y-full hidden'>123</View>
-      <Transition open={open} name='fade-up' timeout={500}>
-        <View className='bg-foreground fixed top-0 left-0 right-0 h-12'>
+      <Transition
+        open={open}
+        timeout={1000}
+        name='fade-up'
+      >
+        <View className='bg-foreground fixed top-0 left-0 right-0 h-20 bg-pink-50 z-50'>
           <Button variant='secondary' block>
             Block secondary
           </Button>
