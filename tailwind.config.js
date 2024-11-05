@@ -48,7 +48,7 @@ module.exports = {
         }
       },
       transitionDuration: {
-        base:'var(--duration)'
+        base:'var(--duration,300ms)'
       },
       borderRadius: {
         lg: `var(--radius)`,

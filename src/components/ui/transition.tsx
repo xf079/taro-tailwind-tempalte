@@ -4,10 +4,6 @@ import { EnterHandler, ExitHandler } from 'react-transition-group/Transition';
 
 export enum TransitionName {
   Fade = 'fade',
-  FadeUp = 'fade-up',
-  FadeDown = 'fade-down',
-  FadeLeft = 'fade-left',
-  FadeRight = 'fade-right',
   SlideUp = 'slide-up',
   SlideDown = 'slide-down',
   SlideLeft = 'slide-left',
@@ -99,79 +95,59 @@ export const Transition: FC<TransitionProps> = (props) => {
           enterActive: `transition-opacity duration-base opacity-100`,
           exitActive: `transition-opacity duration-base opacity-0`
         };
-      case TransitionName.FadeUp:
-        return {
-          appear:'translate-y-full opacity-0',
-          enter: 'translate-y-full opacity-0',
-          enterActive: `transition-all duration-base translate-y-0 opacity-100`,
-          exitActive: `transition-all duration-base translate-y-full opacity-0`
-        };
-      case TransitionName.FadeDown:
-        return {
-          enter: '-translate-y-8 opacity-0',
-          enterActive: `transition-all duration-base -translate-y-0 opacity-100`,
-          exitActive: `transition-all duration-base translate-y-8 opacity-0`
-        };
-      case TransitionName.FadeLeft:
-        return {
-          enter: 'translate-x-8 opacity-0',
-          enterActive: `transition-all duration-base translate-x-0 opacity-100`,
-          exitActive: `transition-all duration-base translate-x-8 opacity-0`
-        };
-      case TransitionName.FadeRight:
-        return {
-          enter: '-translate-x-8 opacity-0',
-          enterActive: `transition-all duration-base -translate-x-0 opacity-100`,
-          exitActive: `transition-all duration-base -translate-x-8 opacity-0`
-        };
       case TransitionName.SlideUp:
         return {
+          appear: 'translate-y-full',
+          appearActive: `transition-all duration-base !translate-y-0`,
           enter: 'translate-y-full',
-          enterActive: `transition-all duration-base translate-y-0`,
+          enterActive: `transition-all duration-base !translate-y-0`,
           exitActive: `transition-all duration-base translate-y-full`
         };
       case TransitionName.SlideDown:
         return {
+          appear: '-translate-y-full',
+          appearActive: `transition-all duration-base !-translate-y-0`,
           enter: '-translate-y-full',
-          enterActive: `transition-all duration-base -translate-y-0`,
+          enterActive: `transition-all duration-base !-translate-y-0`,
           exitActive: `transition-all duration-base -translate-y-full`
         };
       case TransitionName.SlideLeft:
         return {
-          enter: 'translate-x-full',
-          enterActive: `transition-all duration-base translate-x-0`,
+          appear: '-translate-x-full',
+          appearActive: `transition-all duration-base !translate-x-0`,
+          enter: '-translate-x-full',
+          enterActive: `transition-all duration-base !translate-x-0`,
           exitActive: `transition-all duration-base -translate-x-full`
         };
       case TransitionName.SlideRight:
         return {
-          enter: '-translate-x-full',
-          enterActive: `transition-all duration-base -translate-x-0`,
-          exitActive: `transition-all duration-base -translate-x-full`
+          appear: 'translate-x-full',
+          appearActive: `transition-all duration-base !-translate-x-0`,
+          enter: 'translate-x-full',
+          enterActive: `transition-all duration-base !-translate-x-0`,
+          exitActive: `transition-all duration-base translate-x-full`
         };
       default:
         return {
+          appear: 'opacity-0',
+          appearActive: `transition-opacity duration-300 opacity-100`,
           enter: 'opacity-0',
           enterActive: `transition-opacity duration-300 opacity-100`,
           exitActive: `transition-opacity duration-300 opacity-0`
         };
     }
   }, [name]);
-  console.log(classNames);
   return (
     <CSSTransition
       in={open}
       timeout={timeout}
-      style={`--duration: ${timeout}ms`}
-      classNames={{
-        appear: ' translate-y-full opacity-0',
-        appearActive: 'transition-all ease-linear duration-base translate-y-0 opacity-100',
-        enter: 'translate-y-full opacity-0',
-        enterActive: `transition-all ease-linear duration-base translate-y-0 opacity-100`,
-        exitActive: `transition-all ease-linear duration-base translate-y-full opacity-0`
-      }}
+      appear
+      mountOnEnter
       unmountOnExit
-      {...restProps}
+      style={`--duration: ${timeout}ms;`}
+      classNames={classNames}
       children={children}
+      {...restProps}
     />
   );
 };

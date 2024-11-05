@@ -24,14 +24,9 @@ export default function Index() {
       <View>123</View>
       <View>123</View>
       <View>123</View>
-      <View>123</View>
-      <View>123</View>
-      <View className='translate-y-full hidden'>123</View>
-      <Transition
-        open={open}
-        timeout={1000}
-        name='fade-up'
-      >
+      <View className='transition-all duration-base translate-y-full'>123</View>
+      <View className='transition-all duration-base !translate-y-0'>123</View>
+      <Transition open={open} timeout={500} name='slide-down'>
         <View className='bg-foreground fixed top-0 left-0 right-0 h-20 bg-pink-50 z-50'>
           <Button variant='secondary' block>
             Block secondary
