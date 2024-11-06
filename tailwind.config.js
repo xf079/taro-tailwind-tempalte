@@ -13,11 +13,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))'
@@ -48,7 +47,7 @@ module.exports = {
         }
       },
       transitionDuration: {
-        base:'var(--duration,300ms)'
+        base: 'var(--duration,300ms)'
       },
       borderRadius: {
         lg: `var(--radius)`,
@@ -59,18 +58,50 @@ module.exports = {
         sans: ['var(--font-sans)']
       },
       keyframes: {
-        'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' }
+        'fade-in':{
+          from: { opacity: 0 },
+          to: { opacity: 1 }
         },
-        'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' }
-        }
+        'fade-out':{
+          from: { opacity: 1 },
+          to: { opacity: 0 }
+        },
+        'slide-up-enter': {
+          from: { transform: 'translateY(100%)' }
+        },
+        'slide-up-exit': {
+          to: { transform: 'translateY(100%)' }
+        },
+        'slide-down-enter': {
+          from: { transform: 'translateY(-100%)' }
+        },
+        'slide-down-exit': {
+          to: { transform: 'translateY(-100%)' }
+        },
+        'slide-left-enter': {
+          from: { transform: 'translateX(-100%)' }
+        },
+        'slide-left-exit': {
+          to: { transform: 'translateX(-100%)' }
+        },
+        'slide-right-enter': {
+          from: { transform: 'translateX(100%)' }
+        },
+        'slide-right-exit': {
+          to: { transform: 'translateX(100%)' }
+        },
       },
       animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out'
+        'fade-in': 'fade-in var(--duration, 300ms)',
+        'fade-out': 'fade-out var(--duration, 300ms)',
+        'slide-up-enter': 'slide-up-enter var(--duration, 300ms)',
+        'slide-up-exit': 'slide-up-exit var(--duration, 300ms)',
+        'slide-down-enter': 'slide-down-enter var(--duration, 300ms)',
+        'slide-down-exit': 'slide-down-exit var(--duration, 300ms)',
+        'slide-left-enter': 'slide-left-enter var(--duration, 300ms)',
+        'slide-left-exit': 'slide-left-exit var(--duration, 300ms)',
+        'slide-right-enter': 'slide-right-enter var(--duration, 300ms)',
+        'slide-right-exit': 'slide-right-exit var(--duration, 300ms)'
       }
     }
   },

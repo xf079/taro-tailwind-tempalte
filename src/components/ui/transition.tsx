@@ -1,5 +1,5 @@
 import { CSSTransition } from 'react-transition-group';
-import { FC, ReactNode, useMemo } from 'react';
+import React, { FC, ReactNode, useCallback, useMemo, useRef } from 'react';
 import { EnterHandler, ExitHandler } from 'react-transition-group/Transition';
 
 export enum TransitionName {
@@ -12,10 +12,6 @@ export enum TransitionName {
 
 export type TransitionNameType =
   | 'fade'
-  | 'fade-up'
-  | 'fade-down'
-  | 'fade-left'
-  | 'fade-right'
   | 'slide-up'
   | 'slide-down'
   | 'slide-left'
@@ -24,13 +20,8 @@ export type TransitionNameType =
 export interface TransitionProps {
   open: boolean;
   name?: TransitionNameType;
-  timeout?:
-    | number
-    | {
-        appear?: number | undefined;
-        enter?: number | undefined;
-        exit?: number | undefined;
-      };
+  timeout?: number;
+  appear?: boolean;
   /**
    * By default, the child component is mounted immediately along with the
    * parent Transition component. If you want to "lazy mount" the component on
@@ -87,67 +78,69 @@ export interface TransitionProps {
 
 export const Transition: FC<TransitionProps> = (props) => {
   const { open, name = 'fade', timeout = 300, children, ...restProps } = props;
+
+  const nodeRef = useRef(null);
+
   const classNames = useMemo(() => {
     switch (name) {
       case TransitionName.Fade:
         return {
-          enter: 'opacity-0',
-          enterActive: `transition-opacity duration-base opacity-100`,
-          exitActive: `transition-opacity duration-base opacity-0`
+          appearActive: 'animate-fade-in fill-mode-both',
+          enterActive: `animate-fade-in fill-mode-both`,
+          exitActive: `animate-fade-out fill-mode-both`
         };
       case TransitionName.SlideUp:
         return {
-          appear: 'translate-y-full',
-          appearActive: `transition-all duration-base !translate-y-0`,
-          enter: 'translate-y-full',
-          enterActive: `transition-all duration-base !translate-y-0`,
-          exitActive: `transition-all duration-base translate-y-full`
+          appearActive: 'animate-slide-up-enter fill-mode-both',
+          enterActive: `animate-slide-up-enter fill-mode-both`,
+          exitActive: `animate-slide-up-exit fill-mode-both`
         };
       case TransitionName.SlideDown:
         return {
-          appear: '-translate-y-full',
-          appearActive: `transition-all duration-base !-translate-y-0`,
-          enter: '-translate-y-full',
-          enterActive: `transition-all duration-base !-translate-y-0`,
-          exitActive: `transition-all duration-base -translate-y-full`
+          appearActive: `animate-slide-down-enter fill-mode-both`,
+          enterActive: `animate-slide-down-enter fill-mode-both`,
+          exitActive: `animate-slide-down-exit fill-mode-both`
         };
       case TransitionName.SlideLeft:
         return {
-          appear: '-translate-x-full',
-          appearActive: `transition-all duration-base !translate-x-0`,
-          enter: '-translate-x-full',
-          enterActive: `transition-all duration-base !translate-x-0`,
-          exitActive: `transition-all duration-base -translate-x-full`
+          appearActive: `animate-slide-left-enter fill-mode-both`,
+          enterActive: `animate-slide-left-enter fill-mode-both`,
+          exitActive: `animate-slide-left-exit fill-mode-both`
         };
       case TransitionName.SlideRight:
         return {
-          appear: 'translate-x-full',
-          appearActive: `transition-all duration-base !-translate-x-0`,
-          enter: 'translate-x-full',
-          enterActive: `transition-all duration-base !-translate-x-0`,
-          exitActive: `transition-all duration-base translate-x-full`
+          appearActive: `animate-slide-right-enter fill-mode-both`,
+          enterActive: `animate-slide-right-enter fill-mode-both`,
+          exitActive: `animate-slide-right-exit fill-mode-both`
         };
       default:
         return {
-          appear: 'opacity-0',
-          appearActive: `transition-opacity duration-300 opacity-100`,
-          enter: 'opacity-0',
-          enterActive: `transition-opacity duration-300 opacity-100`,
-          exitActive: `transition-opacity duration-300 opacity-0`
+          appearActive: 'animate-fade-in fill-mode-both',
+          enterActive: `animate-fade-in fill-mode-both`,
+          exitActive: `animate-fade-out fill-mode-both`
         };
     }
   }, [name]);
+
+  const getChildren = useCallback(() => {
+    if (Array.isArray(children) || !React.isValidElement(children)) return null;
+    // @ts-ignore
+    return React.cloneElement(children, { ref: nodeRef });
+  }, [children]);
+
   return (
     <CSSTransition
       in={open}
+      nodeRef={nodeRef}
       timeout={timeout}
       appear
       mountOnEnter
       unmountOnExit
       style={`--duration: ${timeout}ms;`}
       classNames={classNames}
-      children={children}
       {...restProps}
-    />
+    >
+      {getChildren()}
+    </CSSTransition>
   );
 };

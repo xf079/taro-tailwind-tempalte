@@ -1,12 +1,10 @@
-import {
-  Button as TaroButton,
-  ButtonProps as TaroButtonProps
-} from '@tarojs/components';
-import { FC } from 'react';
+import { Button, ButtonProps } from '@tarojs/components';
+import { forwardRef } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
+import { Slot } from '@/components/ui/slot';
 
-const buttonVariants = cva(
+const btnVariants = cva(
   'inline-flex items-center justify-center w-auto px-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-transparent after:border-none',
   {
     variants: {
@@ -16,11 +14,11 @@ const buttonVariants = cva(
         destructive:
           'bg-destructive !text-destructive-foreground shadow-sm active:!bg-destructive/70',
         outline:
-          'border-2 border-input border-solid bg-background shadow-sm active:!bg-accent active:!text-accent-foreground',
+          'border-2 border-input border-solid bg-background shadow-sm active:!bg-muted/60',
         secondary:
-          'bg-secondary text-secondary-foreground shadow-sm active:bg-secondary/80',
-        ghost: 'active:!bg-accent active:!text-accent-foreground',
-        link: 'text-primary underline-offset-4 underline active:!bg-transparent active:!text-primary/70'
+          'bg-secondary text-secondary-foreground shadow-sm active:!bg-secondary/60',
+        ghost: 'active:!bg-muted/60',
+        link: 'text-primary underline-offset-4 underline active:!bg-transparent'
       },
       size: {
         default: 'h-12 px-4',
@@ -49,25 +47,24 @@ const buttonVariants = cva(
   }
 );
 
-export type ButtonProps = VariantProps<typeof buttonVariants> & TaroButtonProps;
-export const Button: FC<ButtonProps> = ({
-  variant,
-  size,
-  block,
-  disabled,
-  className,
-  children,
-  ...props
-}) => {
-  return (
-    <TaroButton
-      disabled={disabled}
-      className={cn(
-        buttonVariants({ variant, size, block, disabled, className })
-      )}
-      {...props}
-    >
-      {children}
-    </TaroButton>
-  );
-};
+export interface BtnProps
+  extends ButtonProps,
+    Omit<VariantProps<typeof btnVariants>, 'disabled'> {
+  size?: 'default' | 'sm' | 'lg' | 'icon';
+  asChild?: boolean;
+}
+
+export const Btn = forwardRef<HTMLButtonElement, BtnProps>(
+  ({ variant, size, block, disabled, className, asChild, ...props }, ref) => {
+    const Comp = asChild ? Slot : Button;
+    return (
+      <Comp
+        ref={ref}
+        className={cn(
+          btnVariants({ variant, size, block, disabled, className })
+        )}
+        {...props}
+      />
+    );
+  }
+);
