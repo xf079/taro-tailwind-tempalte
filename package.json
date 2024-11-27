@@ -93,7 +93,7 @@
     "tsconfig-paths-webpack-plugin": "^4.1.0",
     "typescript": "^5.4.5",
     "weapp-tailwindcss": "^3.5.2",
-    "webpack": "5.91.0"
+    "webpack": "5.94.0"
   },
   "volta": {
     "node": "20.17.0"

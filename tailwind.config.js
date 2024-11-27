@@ -33,10 +33,6 @@ module.exports = {
           DEFAULT: 'hsl(var(--muted))',
           foreground: 'hsl(var(--muted-foreground))'
         },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))'
-        },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))'
@@ -58,11 +54,11 @@ module.exports = {
         sans: ['var(--font-sans)']
       },
       keyframes: {
-        'fade-in':{
+        'fade-in': {
           from: { opacity: 0 },
           to: { opacity: 1 }
         },
-        'fade-out':{
+        'fade-out': {
           from: { opacity: 1 },
           to: { opacity: 0 }
         },
@@ -89,7 +85,7 @@ module.exports = {
         },
         'slide-right-exit': {
           to: { transform: 'translateX(100%)' }
-        },
+        }
       },
       animation: {
         'fade-in': 'fade-in var(--duration, 300ms)',

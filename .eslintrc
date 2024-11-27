@@ -6,6 +6,7 @@
     "import/no-commonjs": "off",
     "react/no-children-prop": "off",
     "@typescript-eslint/no-shadow":"off",
-    "react-hooks/exhaustive-deps": "off"
+    "react-hooks/exhaustive-deps": "off",
+    "import/no-mutable-exports": "off"
   }
 }

@@ -20,7 +20,7 @@ export type TransitionNameType =
 export interface TransitionProps {
   open: boolean;
   name?: TransitionNameType;
-  timeout?: number;
+  duration?: number;
   appear?: boolean;
   /**
    * By default, the child component is mounted immediately along with the
@@ -77,7 +77,7 @@ export interface TransitionProps {
 }
 
 export const Transition: FC<TransitionProps> = (props) => {
-  const { open, name = 'fade', timeout = 300, children, ...restProps } = props;
+  const { open, name = 'fade', duration = 300, children, ...restProps } = props;
 
   const nodeRef = useRef(null);
 
@@ -123,7 +123,9 @@ export const Transition: FC<TransitionProps> = (props) => {
   }, [name]);
 
   const getChildren = useCallback(() => {
-    if (Array.isArray(children) || !React.isValidElement(children)) return null;
+    if (Array.isArray(children) || !React.isValidElement(children)) {
+      return null;
+    }
     // @ts-ignore
     return React.cloneElement(children, { ref: nodeRef });
   }, [children]);
@@ -132,11 +134,11 @@ export const Transition: FC<TransitionProps> = (props) => {
     <CSSTransition
       in={open}
       nodeRef={nodeRef}
-      timeout={timeout}
+      timeout={duration}
       appear
       mountOnEnter
       unmountOnExit
-      style={`--duration: ${timeout}ms;`}
+      style={`--duration: ${duration}ms;`}
       classNames={classNames}
       {...restProps}
     >

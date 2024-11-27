@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { cn } from '@/lib/utils';
 import { useControllableValue } from 'ahooks';
 import { Transition } from '@/components/ui/transition';
+import { useLockScroll } from '@/utils/dom/use-lock-scroll';
 
 export interface BackdropProps extends ViewProps {
   /**
@@ -22,9 +23,9 @@ export interface BackdropProps extends ViewProps {
   duration?: number;
   /**
    * 是否锁定背景滚动
-   * @default false
+   * @default true
    */
-  lockScroll?: boolean;
+  lock?: boolean;
 
   /**
    * 是否点击蒙层关闭
@@ -40,7 +41,7 @@ export interface BackdropProps extends ViewProps {
 export const Backdrop: FC<BackdropProps> = (props) => {
   const {
     duration,
-    lockScroll,
+    lock = true,
     closeable,
     onClose,
     onClick,
@@ -54,23 +55,32 @@ export const Backdrop: FC<BackdropProps> = (props) => {
     valuePropName: 'open'
   });
 
+  useLockScroll(lock);
+
   return (
-    <Transition open={state} timeout={duration} name='fade'>
+    <Transition open={state} duration={duration} name='fade'>
       <View
         className={cn(
           'fixed top-0 left-0 right-0 bottom-0 z-50 bg-black/50',
           className
         )}
         onClick={(e) => {
+          e.stopPropagation();
           onClick?.(e);
           if (closeable) {
             onClose?.();
           }
         }}
-        catchMove={lockScroll}
+        catchMove={lock}
         {...restProps}
       >
-        {children}
+        <View
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          {children}
+        </View>
       </View>
     </Transition>
   );

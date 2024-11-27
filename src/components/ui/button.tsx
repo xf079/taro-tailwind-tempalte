@@ -2,7 +2,6 @@ import { Button, ButtonProps } from '@tarojs/components';
 import { forwardRef } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import { Slot } from '@/components/ui/slot';
 
 const btnVariants = cva(
   'inline-flex items-center justify-center w-auto px-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-transparent after:border-none',
@@ -48,17 +47,16 @@ const btnVariants = cva(
 );
 
 export interface BtnProps
-  extends ButtonProps,
+  extends Omit<ButtonProps, 'size'>,
     Omit<VariantProps<typeof btnVariants>, 'disabled'> {
+  disabled?: boolean;
   size?: 'default' | 'sm' | 'lg' | 'icon';
-  asChild?: boolean;
 }
 
 export const Btn = forwardRef<HTMLButtonElement, BtnProps>(
-  ({ variant, size, block, disabled, className, asChild, ...props }, ref) => {
-    const Comp = asChild ? Slot : Button;
+  ({ variant, size, block, disabled, className, ...props }, ref) => {
     return (
-      <Comp
+      <Button
         ref={ref}
         className={cn(
           btnVariants({ variant, size, block, disabled, className })

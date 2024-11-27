@@ -5,15 +5,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dac9ded9-d570-4e74-b4d3-d25abdec3838" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/ui/popup.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/root-context.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/root-parent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/wrapper-hoc.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/base.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/dom/can-use-dom.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/dom/event.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/dom/supports-passive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/dom/use-lock-scroll.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.private.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.private.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ui/backdrop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/backdrop.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/slot.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ui/transition.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/transition.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/primitive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/primitive.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/createDeepCompareEffect.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/createUpdateEffect.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/types.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useAsyncEffect.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useBoolean.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useControllableValue.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useCountDown.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useCounter.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useCreation.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useDebounce.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useDebounceEffect.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useDebounceFn.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useDeepCompareEffect.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useLatest.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useLockFn.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useMap.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useMemoizedFn.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useMount.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/usePrevious.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useThrottleEffect.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useThrottleFn.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useToggle.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useUnmount.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useUnmountedRef.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useUpdate.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/useUpdateEffect.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/utils/depsAreSame.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/common/utils/depsEqual.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/compose-refs.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/create-context.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/number.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/observeElementRect.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/primitive.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,35 +118,36 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.codeium.enabled": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/github/taro-tailwind-tempalte/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.stylelint": "D:\\github\\taro-tailwind-tempalte\\node_modules\\stylelint",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "npm.build:weapp.executor": "Run",
-    "npm.dev:h5.executor": "Run",
-    "npm.dev:weapp.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "D:\\github\\taro-tailwind-tempalte\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "D:\\github\\taro-tailwind-tempalte\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true",
-    "wxn.project": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/github/taro-tailwind-tempalte/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;D:\\github\\taro-tailwind-tempalte\\node_modules\\stylelint&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;npm.build:weapp.executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev:h5.executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev:weapp.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\github\\taro-tailwind-tempalte\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\github\\taro-tailwind-tempalte\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;wxn.project&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\github\taro-tailwind-tempalte\src" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev:h5">
+  <component name="RunManager" selected="npm.dev:weapp">
     <configuration name="build:weapp" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -131,8 +180,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev:h5" />
         <item itemvalue="npm.dev:weapp" />
+        <item itemvalue="npm.dev:h5" />
         <item itemvalue="npm.build:weapp" />
       </list>
     </recent_temporary>
@@ -140,7 +189,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23726.96" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-WS-243.21565.180" />
       </set>
     </attachedChunks>
   </component>
@@ -165,6 +214,7 @@
       <workItem from="1730361950886" duration="6674000" />
       <workItem from="1730794553209" duration="5013000" />
       <workItem from="1730861373952" duration="4939000" />
+      <workItem from="1732713300740" duration="4783000" />
     </task>
     <servers />
   </component>
