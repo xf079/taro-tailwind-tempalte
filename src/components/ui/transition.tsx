@@ -1,5 +1,5 @@
 import { CSSTransition } from 'react-transition-group';
-import React, { FC, ReactNode, useCallback, useMemo, useRef } from 'react';
+import React, { FC, ReactNode, useCallback, useMemo } from 'react';
 import { EnterHandler, ExitHandler } from 'react-transition-group/Transition';
 
 export enum TransitionName {
@@ -79,8 +79,6 @@ export interface TransitionProps {
 export const Transition: FC<TransitionProps> = (props) => {
   const { open, name = 'fade', duration = 300, children, ...restProps } = props;
 
-  const nodeRef = useRef(null);
-
   const classNames = useMemo(() => {
     switch (name) {
       case TransitionName.Fade:
@@ -126,19 +124,19 @@ export const Transition: FC<TransitionProps> = (props) => {
     if (Array.isArray(children) || !React.isValidElement(children)) {
       return null;
     }
-    // @ts-ignore
-    return React.cloneElement(children, { ref: nodeRef });
+    return React.cloneElement(children, {
+      ...children.props,
+      style: { '--duration': `${duration}ms`, ...children.props.style }
+    });
   }, [children]);
 
   return (
     <CSSTransition
       in={open}
-      nodeRef={nodeRef}
       timeout={duration}
       appear
       mountOnEnter
       unmountOnExit
-      style={`--duration: ${duration}ms;`}
       classNames={classNames}
       {...restProps}
     >

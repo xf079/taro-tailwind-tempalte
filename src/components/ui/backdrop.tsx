@@ -74,13 +74,15 @@ export const Backdrop: FC<BackdropProps> = (props) => {
         catchMove={lock}
         {...restProps}
       >
-        <View
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-        >
-          {children}
-        </View>
+        {children ? (
+          <View
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            {children}
+          </View>
+        ) : null}
       </View>
     </Transition>
   );

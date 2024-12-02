@@ -5,6 +5,7 @@ import { EnterHandler, ExitHandler } from 'react-transition-group/Transition';
 import { useControllableValue } from 'ahooks';
 import { cn } from '@/lib/utils';
 import { Backdrop } from '@/components/ui/backdrop';
+import { cva } from 'class-variance-authority';
 
 export type PopupPlacement = 'top' | 'right' | 'bottom' | 'left' | 'center';
 
@@ -28,6 +29,33 @@ function toTransactionName(placement?: PopupPlacement) {
   return TransitionName.Fade;
 }
 
+const popupVariants = cva('fixed bg-background', {
+  variants: {
+    placement: {
+      center: 'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2',
+      top: 'top-0 left-0 right-0',
+      bottom: 'bottom-0 left-0 right-0',
+      left: 'top-0 left-0 bottom-0',
+      right: 'top-0 right-0 bottom-0'
+    },
+    placementRounded: {
+      false: '',
+      center: '',
+      top: 'rounded-b-lg',
+      bottom: 'rounded-t-lg',
+      left: 'rounded-r-lg',
+      right: 'rounded-l-lg'
+    },
+    rounded: {
+      true: 'overflow-hidden',
+    }
+  },
+  defaultVariants: {
+    placement: 'center',
+    rounded: false
+  }
+});
+
 export interface PopupProps extends ViewProps {
   style?: CSSProperties;
   defaultOpen?: boolean;
@@ -36,14 +64,23 @@ export interface PopupProps extends ViewProps {
   rounded?: boolean;
   children?: ReactNode;
   lock?: boolean;
+  zIndex?: number;
+
+  /**
+   * 是否点击蒙层关闭
+   * @default false
+   */
+  closeable?: boolean;
+  /**
+   * closeable为true时点击蒙层时触发
+   */
+  onClose?(opened: boolean): void;
 
   duration?: number;
   mountOnEnter?: boolean;
   transaction?: string;
   transactionDuration?: number;
   transitionAppear?: boolean;
-
-  onClose?(opened: boolean): void;
 
   onTransitionEnter?: EnterHandler<HTMLElement>;
   onTransitionEntered?: EnterHandler<HTMLElement>;
@@ -54,10 +91,13 @@ export interface PopupProps extends ViewProps {
 export const Popup: FC<PopupProps> = (props) => {
   const {
     open,
-    placement,
+    placement = 'center',
     duration,
-    rounded,
-    lock,
+    rounded = false,
+    lock = true,
+    zIndex = 50,
+    closeable,
+    onClose,
     children,
     transaction,
     transactionDuration,
@@ -74,20 +114,23 @@ export const Popup: FC<PopupProps> = (props) => {
     valuePropName: 'open'
   });
 
+  const transformName = toTransactionName(placement);
+
   return (
     <>
       <Backdrop
         open={state}
         duration={transactionDuration}
+        style={{ zIndex }}
         lock={lock}
-        closeable
+        closeable={closeable}
         onClose={() => {
-          props.onClose?.(false);
+          onClose?.(false);
         }}
       />
       <Transition
-        open={open}
-        name={transaction || toTransactionName(placement)}
+        open={state}
+        name={transformName}
         duration={duration}
         appear={transitionAppear}
         onEnter={onTransitionEnter}
@@ -99,13 +142,17 @@ export const Popup: FC<PopupProps> = (props) => {
         {...restProps}
       >
         <View
+          style={{ zIndex: zIndex + 1 }}
           className={cn(
-            'fixed z-40 bg-white',
-            rounded && 'rounded-lg',
-            lock && 'overflow-hidden'
+            popupVariants({
+              placement,
+              rounded,
+              placementRounded: rounded ? placement : false
+            })
           )}
         >
           {children}
+          <View className='rounded rounded-md' />
         </View>
       </Transition>
     </>
