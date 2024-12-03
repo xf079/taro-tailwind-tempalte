@@ -2,23 +2,18 @@ import { View, Text } from '@tarojs/components';
 import { useLoad } from '@tarojs/taro';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import { useRootContext } from '@/lib/root-context';
 import { createParent } from '@/lib/root-parent';
 import { Popup } from '@/components/ui/popup';
-
-import {
-  Dialog,
-  DialogAction,
-  DialogContent,
-  DialogOverlay,
-  DialogTitle
-} from '@/components/ui/dialog';
+import { Dialog } from '@/components/ui/dialog';
+import { useConfig } from '@/components/ui/config-provider';
+import { SafeArea } from '@/components/ui/safe-area';
+import { FixedView } from '@/components/ui/fixed-view';
 
 export default function Index() {
   const [open, setOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
 
-  const name = useRootContext();
+  const name = useConfig();
 
   console.log(name);
 
@@ -29,12 +24,6 @@ export default function Index() {
 
   return (
     <View className='index'>
-      <Text className='w-4 h5-a text-sm text-yellow-300 bg-primary'>
-        Hello world!
-      </Text>
-      <View state-status='open' className='bg-red-600'>
-        123
-      </View>
       <View>123</View>
       <View>123</View>
       <View>123</View>
@@ -65,15 +54,8 @@ export default function Index() {
           </Button>
         </View>
       </Popup>
-      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogOverlay />
-        <DialogContent>
-          <DialogTitle children='提示' />
-          <View className='px-4 py-6 text-sm'>
-            代码是写出来给人看的，附带能在机器上运行
-          </View>
-          <DialogAction />
-        </DialogContent>
+      <Dialog open={dialogOpen} title='提示' onOpenChange={setDialogOpen}>
+        <View className='px-4 py-6 text-sm'>代码是写出来给人看的，附带能在机器上运行</View>
       </Dialog>
       <View className='flex flex-row justify-start items-center gap-2 flex-wrap p-2'>
         <Button
@@ -115,6 +97,15 @@ export default function Index() {
         <Button variant='link' />
         <Button variant='destructive' />
       </View>
+      <SafeArea position='bottom'>
+        <Text className='w-4 h5-a text-sm text-yellow-300 bg-primary'>Hello world!</Text>
+        <View state-status='open' className='bg-red-600'>
+          123
+        </View>
+      </SafeArea>
+      <FixedView position='top' safeArea='top' nativeSafeTop placeholder className='bg-black'>
+        <View className='w-full h-50 bg-red-600'>123</View>
+      </FixedView>
     </View>
   );
 }

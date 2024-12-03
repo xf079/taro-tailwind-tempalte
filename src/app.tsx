@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 import { useLaunch } from '@tarojs/taro';
-import { RootProvider } from '@/lib/root-context';
+import { ConfigProvider } from '@/components/ui/config-provider';
 import './app.css';
 
 function App({ children }: PropsWithChildren<any>) {
@@ -9,7 +9,7 @@ function App({ children }: PropsWithChildren<any>) {
   });
 
   // children 是将要会渲染的页面
-  return <RootProvider value={{ name: '123' }}>{children}</RootProvider>;
+  return <ConfigProvider>{children}</ConfigProvider>;
 }
 
 export default App;

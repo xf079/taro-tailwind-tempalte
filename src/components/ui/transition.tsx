@@ -7,7 +7,8 @@ export enum TransitionName {
   SlideUp = 'slide-up',
   SlideDown = 'slide-down',
   SlideLeft = 'slide-left',
-  SlideRight = 'slide-right'
+  SlideRight = 'slide-right',
+  Scale = 'scale'
 }
 
 export type TransitionNameType =
@@ -15,7 +16,8 @@ export type TransitionNameType =
   | 'slide-up'
   | 'slide-down'
   | 'slide-left'
-  | 'slide-right';
+  | 'slide-right'
+  | 'scale';
 
 export interface TransitionProps {
   open: boolean;
@@ -110,6 +112,12 @@ export const Transition: FC<TransitionProps> = (props) => {
           appearActive: `animate-slide-right-enter fill-mode-both`,
           enterActive: `animate-slide-right-enter fill-mode-both`,
           exitActive: `animate-slide-right-exit fill-mode-both`
+        };
+      case TransitionName.Scale:
+        return {
+          appearActive: `animate-scale-enter fill-mode-both`,
+          enterActive: `animate-scale-enter fill-mode-both`,
+          exitActive: `animate-scale-exit fill-mode-both`
         };
       default:
         return {

@@ -6,6 +6,7 @@ import { useControllableValue } from 'ahooks';
 import { cn } from '@/lib/utils';
 import { Backdrop } from '@/components/ui/backdrop';
 import { cva } from 'class-variance-authority';
+import { useConfig } from '@/components/ui/config-provider';
 
 export type PopupPlacement = 'top' | 'right' | 'bottom' | 'left' | 'center';
 
@@ -47,7 +48,7 @@ const popupVariants = cva('fixed bg-background', {
       right: 'rounded-l-lg'
     },
     rounded: {
-      true: 'overflow-hidden',
+      true: 'overflow-hidden'
     }
   },
   defaultVariants: {
@@ -95,7 +96,6 @@ export const Popup: FC<PopupProps> = (props) => {
     duration,
     rounded = false,
     lock = true,
-    zIndex = 50,
     closeable,
     onClose,
     children,
@@ -113,6 +113,7 @@ export const Popup: FC<PopupProps> = (props) => {
     defaultValuePropName: 'defaultOpen',
     valuePropName: 'open'
   });
+  const { index } = useConfig();
 
   const transformName = toTransactionName(placement);
 
@@ -121,7 +122,7 @@ export const Popup: FC<PopupProps> = (props) => {
       <Backdrop
         open={state}
         duration={transactionDuration}
-        style={{ zIndex }}
+        style={{ zIndex: index }}
         lock={lock}
         closeable={closeable}
         onClose={() => {
@@ -142,7 +143,7 @@ export const Popup: FC<PopupProps> = (props) => {
         {...restProps}
       >
         <View
-          style={{ zIndex: zIndex + 1 }}
+          style={{ zIndex: index + 1 }}
           className={cn(
             popupVariants({
               placement,

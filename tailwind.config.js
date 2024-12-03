@@ -85,6 +85,14 @@ module.exports = {
         },
         'slide-right-exit': {
           to: { transform: 'translateX(100%)' }
+        },
+        'scale-enter': {
+          from: { transform: 'scale(0.5)', opacity: 0 },
+          to: { transform: 'scale(1)', opacity: 1 }
+        },
+        'scale-exit': {
+          from: { transform: 'scale(1)', opacity: 1 },
+          to: { transform: 'scale(0.5)', opacity: 0 }
         }
       },
       animation: {
@@ -97,7 +105,9 @@ module.exports = {
         'slide-left-enter': 'slide-left-enter var(--duration, 300ms)',
         'slide-left-exit': 'slide-left-exit var(--duration, 300ms)',
         'slide-right-enter': 'slide-right-enter var(--duration, 300ms)',
-        'slide-right-exit': 'slide-right-exit var(--duration, 300ms)'
+        'slide-right-exit': 'slide-right-exit var(--duration, 300ms)',
+        'scale-enter': 'scale-enter var(--duration, 300ms)',
+        'scale-exit': 'scale-exit var(--duration, 300ms)'
       }
     }
   },
