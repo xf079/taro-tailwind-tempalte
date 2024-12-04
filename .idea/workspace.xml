@@ -5,28 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dac9ded9-d570-4e74-b4d3-d25abdec3838" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ui/config-provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/fixed-view.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/safe-area.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useHeight.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/usePlaceholder.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useRenderedEffect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useWindowResize.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/dom/element.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/dom/rect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/format/number.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/format/unit.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/dialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/popup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/popup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/transition.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/transition.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/root-context.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index/index.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index/index.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.private.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.private.config.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +83,7 @@
     &quot;npm.dev:weapp.executor&quot;: &quot;Run&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/lance/dev/github/taro-tailwind-tempalte/node_modules/prettier&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/lance/dev/github/taro-tailwind-tempalte/node_modules/typescript/lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\github\\taro-tailwind-tempalte\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
     &quot;wxn.project&quot;: &quot;true&quot;
   }
@@ -112,7 +93,7 @@
       <recent name="D:\github\taro-tailwind-tempalte\src" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev:weapp">
+  <component name="RunManager" selected="npm.dev:h5">
     <configuration name="build:weapp" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -145,8 +126,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev:weapp" />
         <item itemvalue="npm.dev:h5" />
+        <item itemvalue="npm.dev:weapp" />
         <item itemvalue="npm.build:weapp" />
       </list>
     </recent_temporary>
@@ -182,6 +163,7 @@
       <workItem from="1732713300740" duration="4783000" />
       <workItem from="1733195258006" duration="9040000" />
       <workItem from="1733210595074" duration="8660000" />
+      <workItem from="1733281712893" duration="2456000" />
     </task>
     <servers />
   </component>

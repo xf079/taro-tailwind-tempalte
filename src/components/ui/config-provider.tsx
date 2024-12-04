@@ -1,7 +1,4 @@
-import { createContext } from '@/components/ui/context';
-import { useState } from 'react';
-
-const CONFIG_PROVIDER_NAME = 'ConfigProvider';
+import { createContext, useContext, useState } from 'react';
 
 type ConfigProviderTypeValue = {
   index: number;
@@ -11,17 +8,16 @@ const defaultConfigValue: ConfigProviderTypeValue = {
   index: 100
 };
 
-const [Provider, useContext] = createContext<ConfigProviderTypeValue>(
-  CONFIG_PROVIDER_NAME,
-  defaultConfigValue
-);
+const ConfigContext = createContext<ConfigProviderTypeValue>(defaultConfigValue);
 
 const ConfigProvider = ({ children }) => {
   const [state] = useState(defaultConfigValue);
 
-  return <Provider {...state}>{children}</Provider>;
+  return <ConfigContext.Provider value={state}>{children}</ConfigContext.Provider>;
 };
 
-const useConfig = () => useContext(CONFIG_PROVIDER_NAME);
+const useConfig = () => {
+  return useContext(ConfigContext);
+};
 
 export { ConfigProvider, useConfig };

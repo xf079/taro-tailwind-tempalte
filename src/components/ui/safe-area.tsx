@@ -1,4 +1,4 @@
-import { getSystemInfoSync } from '@tarojs/taro';
+import { getSystemInfoSync, getWindowInfo } from '@tarojs/taro';
 import React, { useMemo } from 'react';
 import { View, ViewProps } from '@tarojs/components';
 import { cva } from 'class-variance-authority';
@@ -23,7 +23,7 @@ const safeAreaVariants = cva('w-full', {
 
 export const SafeArea: React.FC<SafeAreaProps> = (props) => {
   const { position, nativeSafeTop, className, style, ...restProps } = props;
-  const { statusBarHeight } = getSystemInfoSync();
+  const { statusBarHeight } = getWindowInfo();
 
   const customStyle = useMemo(() => {
     if (position === 'top' && nativeSafeTop) {

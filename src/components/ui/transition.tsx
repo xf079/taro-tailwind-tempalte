@@ -1,23 +1,17 @@
 import { CSSTransition } from 'react-transition-group';
-import React, { FC, ReactNode, useCallback, useMemo } from 'react';
+import React, { FC, ReactNode, useCallback, useMemo, useRef } from 'react';
 import { EnterHandler, ExitHandler } from 'react-transition-group/Transition';
 
-export enum TransitionName {
-  Fade = 'fade',
-  SlideUp = 'slide-up',
-  SlideDown = 'slide-down',
-  SlideLeft = 'slide-left',
-  SlideRight = 'slide-right',
-  Scale = 'scale'
-}
+export const TransitionName = {
+  Fade: 'fade',
+  FadeScale: 'fade-scale',
+  SlideUp: 'slide-up',
+  SlideDown: 'slide-down',
+  SlideLeft: 'slide-left',
+  SlideRight: 'slide-right'
+} as const;
 
-export type TransitionNameType =
-  | 'fade'
-  | 'slide-up'
-  | 'slide-down'
-  | 'slide-left'
-  | 'slide-right'
-  | 'scale';
+export type TransitionNameType = (typeof TransitionName)[keyof typeof TransitionName];
 
 export interface TransitionProps {
   open: boolean;
@@ -81,6 +75,8 @@ export interface TransitionProps {
 export const Transition: FC<TransitionProps> = (props) => {
   const { open, name = 'fade', duration = 300, children, ...restProps } = props;
 
+  const nodeRef = useRef(null);
+
   const classNames = useMemo(() => {
     switch (name) {
       case TransitionName.Fade:
@@ -88,6 +84,12 @@ export const Transition: FC<TransitionProps> = (props) => {
           appearActive: 'animate-fade-in fill-mode-both',
           enterActive: `animate-fade-in fill-mode-both`,
           exitActive: `animate-fade-out fill-mode-both`
+        };
+      case TransitionName.FadeScale:
+        return {
+          appearActive: `animate-scale-enter fill-mode-both`,
+          enterActive: `animate-scale-enter fill-mode-both`,
+          exitActive: `animate-scale-exit fill-mode-both`
         };
       case TransitionName.SlideUp:
         return {
@@ -113,12 +115,6 @@ export const Transition: FC<TransitionProps> = (props) => {
           enterActive: `animate-slide-right-enter fill-mode-both`,
           exitActive: `animate-slide-right-exit fill-mode-both`
         };
-      case TransitionName.Scale:
-        return {
-          appearActive: `animate-scale-enter fill-mode-both`,
-          enterActive: `animate-scale-enter fill-mode-both`,
-          exitActive: `animate-scale-exit fill-mode-both`
-        };
       default:
         return {
           appearActive: 'animate-fade-in fill-mode-both',
@@ -134,12 +130,14 @@ export const Transition: FC<TransitionProps> = (props) => {
     }
     return React.cloneElement(children, {
       ...children.props,
+      ref: nodeRef,
       style: { '--duration': `${duration}ms`, ...children.props.style }
     });
   }, [children]);
 
   return (
     <CSSTransition
+      nodeRef={nodeRef}
       in={open}
       timeout={duration}
       appear

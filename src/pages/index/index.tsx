@@ -2,7 +2,6 @@ import { View, Text } from '@tarojs/components';
 import { useLoad } from '@tarojs/taro';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import { createParent } from '@/lib/root-parent';
 import { Popup } from '@/components/ui/popup';
 import { Dialog } from '@/components/ui/dialog';
 import { useConfig } from '@/components/ui/config-provider';
@@ -19,7 +18,6 @@ export default function Index() {
 
   useLoad(() => {
     console.log('Page loaded.');
-    createParent();
   });
 
   return (

@@ -2,11 +2,11 @@
   "miniprogramRoot": "dist/",
   "projectname": "taro-tailwind-template",
   "description": "taro tailwindcss template",
-  "appid": "wxf4aab3a69d357020",
+  "appid": "wxd04e1e17fced815f",
   "setting": {
     "urlCheck": true,
-    "es6": false,
-    "enhance": false,
+    "es6": true,
+    "enhance": true,
     "compileHotReLoad": false,
     "postcss": false,
     "minified": false,
@@ -14,7 +14,9 @@
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    }
+    },
+    "minifyWXSS": false,
+    "minifyWXML": false
   },
   "compileType": "miniprogram",
   "libVersion": "3.6.0",
