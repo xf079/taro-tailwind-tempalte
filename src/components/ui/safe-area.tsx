@@ -1,4 +1,4 @@
-import { getSystemInfoSync, getWindowInfo } from '@tarojs/taro';
+import { getWindowInfo } from '@tarojs/taro';
 import React, { useMemo } from 'react';
 import { View, ViewProps } from '@tarojs/components';
 import { cva } from 'class-variance-authority';
@@ -7,8 +7,19 @@ import { cn } from '@/lib/utils';
 export type SafeAreaPosition = 'top' | 'bottom';
 
 export interface SafeAreaProps extends ViewProps {
+  /**
+   * @description 安全区域位置
+   * @default 'top'
+   */
   position?: SafeAreaPosition;
+  /**
+   * Custom style
+   */
   style?: React.CSSProperties;
+  /**
+   * @description 是否使用原生的安全区域
+   * @default false
+   */
   nativeSafeTop?: boolean;
 }
 
@@ -22,7 +33,7 @@ const safeAreaVariants = cva('w-full', {
 });
 
 export const SafeArea: React.FC<SafeAreaProps> = (props) => {
-  const { position, nativeSafeTop, className, style, ...restProps } = props;
+  const { position = 'top', nativeSafeTop = false, className, style, ...restProps } = props;
   const { statusBarHeight } = getWindowInfo();
 
   const customStyle = useMemo(() => {
@@ -32,7 +43,7 @@ export const SafeArea: React.FC<SafeAreaProps> = (props) => {
       };
     }
     return {};
-  }, [position]);
+  }, [position, nativeSafeTop]);
 
   return (
     <View

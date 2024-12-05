@@ -14,61 +14,80 @@ export const TransitionName = {
 export type TransitionNameType = (typeof TransitionName)[keyof typeof TransitionName];
 
 export interface TransitionProps {
-  open: boolean;
-  name?: TransitionNameType;
-  duration?: number;
-  appear?: boolean;
   /**
-   * By default, the child component is mounted immediately along with the
-   * parent Transition component. If you want to "lazy mount" the component on
-   * the first `in={true}` you can set `mountOnEnter`. After the first enter
-   * transition the component will stay mounted, even on "exited", unless you
-   * also specify `unmountOnExit`.
+   * @description 控制组件是否打开
+   */
+  open: boolean;
+
+  /**
+   * @description 默认情况下是否打开
+   * @default false
+   */
+  defaultOpen?: boolean;
+  /**
+   * @description 过渡动画的名称类型
+   */
+  name?: TransitionNameType; // 过渡动画的名称类型
+  /**
+   * @description 动画持续时间
+   * @default 300
+   */
+  duration?: number; // 动画持续时间
+  /**
+   * @description 是否在初次挂载时应用动画
+   * @default false
+   */
+  appear?: boolean; // 是否在初次挂载时应用动画
+  /**
+   * @description 默认情况下，子组件与父 Transition 组件一起立即挂载。
+   * 如果希望在第一次 `in={true}` 时“延迟挂载”组件，可以设置 `mountOnEnter`。
+   * 在第一次进入过渡后，组件将保持挂载状态，即使在“退出”状态，除非同时指定 `unmountOnExit`。
+   * @default false
    */
   mountOnEnter?: boolean | undefined;
 
   /**
-   * By default, the child component stays mounted after it reaches the
-   * 'exited' state. Set `unmountOnExit` if you'd prefer to unmount the
-   * component after it finishes exiting.
+   * @description 默认情况下，子组件在达到“退出”状态后仍保持挂载。
+   * 如果希望在退出完成后卸载组件，可以设置 `unmountOnExit`。
+   * @default false
    */
   unmountOnExit?: boolean | undefined;
 
   /**
-   * Callback fired before the "entering" status is applied. An extra
-   * parameter `isAppearing` is supplied to indicate if the enter stage is
-   * occurring on the initial mount
+   * @description 在应用“进入中”状态之前触发的回调。
+   * 提供一个额外的参数 `isAppearing`，用于指示进入阶段是否发生在初次挂载时。
    */
   onEnter?: EnterHandler<HTMLElement> | undefined;
 
   /**
-   * Callback fired after the "entering" status is applied. An extra parameter
-   * isAppearing is supplied to indicate if the enter stage is occurring on
-   * the initial mount
+   * @description 在应用“进入中”状态之后触发的回调。
+   * 提供一个额外的参数 `isAppearing`，用于指示进入阶段是否发生在初次挂载时。
    */
   onEntering?: EnterHandler<HTMLElement> | undefined;
 
   /**
-   * Callback fired after the "entered" status is applied. An extra parameter
-   * isAppearing is supplied to indicate if the enter stage is occurring on
-   * the initial mount
+   * @description 在应用“已进入”状态之后触发的回调。
+   * 提供一个额外的参数 `isAppearing`，用于指示进入阶段是否发生在初次挂载时。
    */
   onEntered?: EnterHandler<HTMLElement> | undefined;
 
   /**
-   * Callback fired before the "exiting" status is applied.
+   * @description 在应用“退出中”状态之前触发的回调。
    */
   onExit?: ExitHandler<HTMLElement> | undefined;
 
   /**
-   * Callback fired after the "exiting" status is applied.
+   * @description 在应用“退出中”状态之后触发的回调。
    */
   onExiting?: ExitHandler<HTMLElement> | undefined;
 
   /**
-   * Callback fired after the "exited" status is applied.
+   * @description 在应用“已退出”状态之后触发的回调。
    */
   onExited?: ExitHandler<HTMLElement> | undefined;
+  /**
+   * @description 子组件
+   */
   children?: ReactNode;
 }
 
@@ -78,51 +97,65 @@ export const Transition: FC<TransitionProps> = (props) => {
   const nodeRef = useRef(null);
 
   const classNames = useMemo(() => {
+    const fillMode = 'fill-mode-both';
+    const fadeIn = 'animate-fade-in';
+    const fadeOut = 'animate-fade-out';
+    const scaleEnter = 'animate-scale-enter';
+    const scaleExit = 'animate-scale-exit';
+    const slideUpEnter = 'animate-slide-up-enter';
+    const slideUpExit = 'animate-slide-up-exit';
+    const slideDownEnter = 'animate-slide-down-enter';
+    const slideDownExit = 'animate-slide-down-exit';
+    const slideLeftEnter = 'animate-slide-left-enter';
+    const slideLeftExit = 'animate-slide-left-exit';
+    const slideRightEnter = 'animate-slide-right-enter';
+    const slideRightExit = 'animate-slide-right-exit';
+
     switch (name) {
       case TransitionName.Fade:
         return {
-          appearActive: 'animate-fade-in fill-mode-both',
-          enterActive: `animate-fade-in fill-mode-both`,
-          exitActive: `animate-fade-out fill-mode-both`
+          appearActive: `${fadeIn} ${fillMode}`,
+          enterActive: `${fadeIn} ${fillMode}`,
+          exitActive: `${fadeOut} ${fillMode}`
         };
       case TransitionName.FadeScale:
         return {
-          appearActive: `animate-scale-enter fill-mode-both`,
-          enterActive: `animate-scale-enter fill-mode-both`,
-          exitActive: `animate-scale-exit fill-mode-both`
+          appearActive: `${scaleEnter} ${fillMode}`,
+          enterActive: `${scaleEnter} ${fillMode}`,
+          exitActive: `${scaleExit} ${fillMode}`
         };
       case TransitionName.SlideUp:
         return {
-          appearActive: 'animate-slide-up-enter fill-mode-both',
-          enterActive: `animate-slide-up-enter fill-mode-both`,
-          exitActive: `animate-slide-up-exit fill-mode-both`
+          appearActive: `${slideUpEnter} ${fillMode}`,
+          enterActive: `${slideUpEnter} ${fillMode}`,
+          exitActive: `${slideUpExit} ${fillMode}`
         };
       case TransitionName.SlideDown:
         return {
-          appearActive: `animate-slide-down-enter fill-mode-both`,
-          enterActive: `animate-slide-down-enter fill-mode-both`,
-          exitActive: `animate-slide-down-exit fill-mode-both`
+          appearActive: `${slideDownEnter} ${fillMode}`,
+          enterActive: `${slideDownEnter} ${fillMode}`,
+          exitActive: `${slideDownExit} ${fillMode}`
         };
       case TransitionName.SlideLeft:
         return {
-          appearActive: `animate-slide-left-enter fill-mode-both`,
-          enterActive: `animate-slide-left-enter fill-mode-both`,
-          exitActive: `animate-slide-left-exit fill-mode-both`
+          appearActive: `${slideLeftEnter} ${fillMode}`,
+          enterActive: `${slideLeftEnter} ${fillMode}`,
+          exitActive: `${slideLeftExit} ${fillMode}`
         };
       case TransitionName.SlideRight:
         return {
-          appearActive: `animate-slide-right-enter fill-mode-both`,
-          enterActive: `animate-slide-right-enter fill-mode-both`,
-          exitActive: `animate-slide-right-exit fill-mode-both`
+          appearActive: `${slideRightEnter} ${fillMode}`,
+          enterActive: `${slideRightEnter} ${fillMode}`,
+          exitActive: `${slideRightExit} ${fillMode}`
         };
       default:
         return {
-          appearActive: 'animate-fade-in fill-mode-both',
-          enterActive: `animate-fade-in fill-mode-both`,
-          exitActive: `animate-fade-out fill-mode-both`
+          appearActive: `${fadeIn} ${fillMode}`,
+          enterActive: `${fadeIn} ${fillMode}`,
+          exitActive: `${fadeOut} ${fillMode}`
         };
     }
-  }, [name]);
+  }, [name, duration]);
 
   const getChildren = useCallback(() => {
     if (Array.isArray(children) || !React.isValidElement(children)) {
@@ -133,7 +166,7 @@ export const Transition: FC<TransitionProps> = (props) => {
       ref: nodeRef,
       style: { '--duration': `${duration}ms`, ...children.props.style }
     });
-  }, [children]);
+  }, [children, duration]);
 
   return (
     <CSSTransition

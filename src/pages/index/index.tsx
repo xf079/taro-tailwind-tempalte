@@ -2,7 +2,7 @@ import { View, Text } from '@tarojs/components';
 import { useLoad } from '@tarojs/taro';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import { Popup } from '@/components/ui/popup';
+import { Popup, PopupBackdrop, PopupContent } from '@/components/ui/popup';
 import { Dialog } from '@/components/ui/dialog';
 import { useConfig } from '@/components/ui/config-provider';
 import { SafeArea } from '@/components/ui/safe-area';
@@ -39,18 +39,21 @@ export default function Index() {
       </Backdrop>*/}
       <Popup
         open={open}
-        placement='bottom'
+        placement='center'
         closeable
         rounded
-        onClose={() => {
-          setOpen(false);
+        onOpenChange={(_open) => {
+          setOpen(_open);
         }}
       >
-        <View className='bg-foreground w-full h-20 bg-pink-50 z-50'>
-          <Button variant='secondary' block>
-            Block secondary
-          </Button>
-        </View>
+        <PopupBackdrop />
+        <PopupContent className='w-3/4 h-60'>
+          <View className='bg-foreground w-full h-20 bg-pink-50 z-50'>
+            <Button variant='secondary' block>
+              Block secondary
+            </Button>
+          </View>
+        </PopupContent>
       </Popup>
       <Dialog open={dialogOpen} title='提示' onOpenChange={setDialogOpen}>
         <View className='px-4 py-6 text-sm'>代码是写出来给人看的，附带能在机器上运行</View>
