@@ -28,7 +28,6 @@ function toTransactionName(placement?: PopupPlacement) {
 }
 export type PopupPlacement = 'top' | 'right' | 'bottom' | 'left' | 'center';
 
-
 type PopupContextValue = {
   open: boolean;
   placement?: PopupPlacement;
@@ -119,7 +118,7 @@ const Popup: React.FC<PopupProps> = (props) => {
       lock={lock}
       onOpenChange={onOpenChange}
     >
-      {children}
+      <View>{children}</View>
     </Provider>
   );
 };

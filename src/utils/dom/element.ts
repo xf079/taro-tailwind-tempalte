@@ -56,10 +56,6 @@ export function usePrependPageSelector(selector?: string) {
   return path ? `${path}__${selector}` : selector;
 }
 
-// Fix nested in CustomWrapper is undefined
-// See: https://github.com/mallfoundry/taroify/pull/143
-// Fix nested in a Block element does not query elements
-// See: https://github.com/mallfoundry/taroify/pull/370
 function getAncestorWrapper(element: TaroElement) {
   if (!inBrowser) {
     let ancestor = element;
