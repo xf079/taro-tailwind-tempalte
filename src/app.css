@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  page,:root {
+  page,
+  :root {
     --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;
     --card: 0 0% 100%;
@@ -23,8 +24,9 @@
     --border: 220 13% 91%;
     --input: 220 13% 91%;
     --ring: 262.1 83.3% 57.8%;
-    --radius: 16px;
-    --duration:300;
+
+    --radius: 12px;
+    --duration: 300;
   }
 
   .dark {
@@ -50,3 +52,16 @@
   }
 }
 
+view,
+text,
+button {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+view,
+text,
+button:after,button:before{
+  content:'';
+  content:none;
+}

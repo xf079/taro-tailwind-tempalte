@@ -5,5 +5,11 @@ export default defineAppConfig({
     navigationBarBackgroundColor: '#fff',
     navigationBarTitleText: 'WeChat',
     navigationBarTextStyle: 'black'
-  }
+  },
+  subpackages: [
+    {
+      root: 'demo',
+      pages: ['pages/button/button']
+    }
+  ]
 });

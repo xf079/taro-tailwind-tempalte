@@ -1,12 +1,12 @@
 import { View, Text } from '@tarojs/components';
 import { useLoad } from '@tarojs/taro';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button/button';
 import { useState } from 'react';
-import { Popup, PopupBackdrop, PopupContent } from '@/components/ui/popup';
-import { Dialog } from '@/components/ui/dialog';
-import { useConfig } from '@/components/ui/config-provider';
-import { SafeArea } from '@/components/ui/safe-area';
-import { FixedView } from '@/components/ui/fixed-view';
+import { Popup, PopupBackdrop, PopupContent } from '@/components/ui/popup/popup';
+import { Dialog } from '@/components/ui/dialog/dialog';
+import { useConfig } from '@/components/ui/config-provider/config-provider';
+import { SafeArea } from '@/components/ui/safe-aera/safe-area';
+import { FixedView } from '@/components/ui/fixed-view/fixed-view';
 
 export default function Index() {
   const [open, setOpen] = useState(false);

@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { View, ViewProps } from '@tarojs/components';
 import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import { SafeArea, type SafeAreaPosition } from '@/components/ui/safe-area';
+import { SafeArea, type SafeAreaPosition } from '@/components/ui/safe-aera/safe-area';
 import { usePlaceholder } from '@/hooks/usePlaceholder';
 
 interface FixedViewProps extends ViewProps {

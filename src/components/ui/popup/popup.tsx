@@ -3,9 +3,9 @@ import { View } from '@tarojs/components';
 import { useControllableValue } from 'ahooks';
 import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import { Backdrop } from '@/components/ui/backdrop';
+import { Backdrop } from '@/components/ui/backdrop/backdrop';
 import createContext from '@/components/ui/context';
-import { Transition, TransitionName } from '@/components/ui/transition';
+import { Transition, TransitionName } from '@/components/ui/transition/transition';
 
 function toTransactionName(placement?: PopupPlacement) {
   if (placement === 'top') {
@@ -118,7 +118,7 @@ const Popup: React.FC<PopupProps> = (props) => {
       lock={lock}
       onOpenChange={onOpenChange}
     >
-      <View>{children}</View>
+      {children}
     </Provider>
   );
 };

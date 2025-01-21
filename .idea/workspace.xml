@@ -5,21 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dac9ded9-d570-4e74-b4d3-d25abdec3838" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/backdrop/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/button/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/config-provider/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/dialog/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/fixed-view/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/icon/icon.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/icon/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/popup/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/safe-aera/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/transition/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/demo/components/block.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/demo/pages/button/button.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/demo/pages/button/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024_12_2_14_34____.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2024_12_2_14_34_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/dev.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config/prod.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/popup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/popup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useHeight.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useHeight.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/usePlaceholder.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/usePlaceholder.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/dom/element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/dom/element.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/dom/event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/dom/event.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.private.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.private.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/backdrop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/backdrop/backdrop.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/button/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/config-provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/config-provider/config-provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/context/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/dialog/dialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/fixed-view.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/fixed-view/fixed-view.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/popup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/popup/popup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/safe-area.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/safe-aera/safe-area.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/transition.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/transition/transition.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +113,7 @@
     "npm.lint.executor": "Run",
     "prettierjs.PrettierConfiguration.Package": "/Users/lance/dev/github/taro-tailwind-tempalte/node_modules/prettier",
     "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "C:\\Users\\XueFeng\\AppData\\Local\\Programs\\WebStorm 2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "ts.external.directory.path": "/Users/lance/dev/github/taro-tailwind-tempalte/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true",
     "wxn.project": "true"
   }
@@ -105,8 +122,15 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\github\taro-tailwind-tempalte\src" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/ui/dialog" />
+      <recent name="$PROJECT_DIR$/src/components/ui/popup" />
+      <recent name="$PROJECT_DIR$/src/components/ui/config-provider" />
+      <recent name="$PROJECT_DIR$/src/components/ui/button" />
+      <recent name="$PROJECT_DIR$/src/components/ui/fixed-view" />
+    </key>
   </component>
-  <component name="RunManager" selected="npm.lint">
+  <component name="RunManager" selected="npm.dev:h5">
     <configuration name="build:weapp" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -149,8 +173,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.lint" />
         <item itemvalue="npm.dev:h5" />
+        <item itemvalue="npm.lint" />
         <item itemvalue="npm.dev:weapp" />
         <item itemvalue="npm.build:weapp" />
       </list>
@@ -159,7 +183,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.112" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.120" />
       </set>
     </attachedChunks>
   </component>
@@ -191,6 +215,7 @@
       <workItem from="1733582063507" duration="22000" />
       <workItem from="1733582318374" duration="22000" />
       <workItem from="1733669452064" duration="358000" />
+      <workItem from="1737447421275" duration="5940000" />
     </task>
     <servers />
   </component>

@@ -3,5 +3,19 @@
   "projectname": "taro-tailwind-template",
   "setting": {
     "compileHotReLoad": true
+  },
+  "libVersion": "3.6.0",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "demo/pages/button/button",
+          "pathName": "demo/pages/button/button",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
   }
 }

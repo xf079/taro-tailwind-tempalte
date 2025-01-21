@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 import { useLaunch } from '@tarojs/taro';
-import { ConfigProvider } from '@/components/ui/config-provider';
+import { ConfigProvider } from '@/components/ui/config-provider/config-provider';
 import './app.css';
 
 function App({ children }: PropsWithChildren<any>) {

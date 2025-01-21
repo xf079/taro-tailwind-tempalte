@@ -6,7 +6,7 @@ module.exports = {
       // 32 意味着 1rem = 32rpx
       fontSize: 32,
       // 转化的单位,可以变成 px / rpx
-      unit: process.env.TARO_ENV === 'h5' ? 'rem' : 'rpx'
+      unit: process.env.TARO_ENV === 'h5' ? 'px' : 'rpx'
     })
   ],
   content: ['./public/index.html', './src/**/*.{html,js,ts,jsx,tsx,vue}'],

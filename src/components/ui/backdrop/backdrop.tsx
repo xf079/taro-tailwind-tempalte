@@ -2,8 +2,8 @@ import { View, ViewProps } from '@tarojs/components';
 import { FC } from 'react';
 import { cn } from '@/lib/utils';
 import { useControllableValue } from 'ahooks';
-import { Transition } from '@/components/ui/transition';
 import { useLockScroll } from '@/utils/dom/use-lock-scroll';
+import { Transition } from '../transition';
 
 export interface BackdropProps extends ViewProps {
   /**
@@ -60,10 +60,7 @@ export const Backdrop: FC<BackdropProps> = (props) => {
   return (
     <Transition open={state} duration={duration} name='fade'>
       <View
-        className={cn(
-          'fixed top-0 left-0 right-0 bottom-0 z-50 bg-black/50',
-          className
-        )}
+        className={cn('fixed top-0 left-0 right-0 bottom-0 z-50 bg-black/50', className)}
         onClick={(e) => {
           e.stopPropagation();
           onClick?.(e);
