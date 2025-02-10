@@ -7,6 +7,21 @@ import { Dialog } from '@/components/ui/dialog/dialog';
 import { useConfig } from '@/components/ui/config-provider/config-provider';
 import { SafeArea } from '@/components/ui/safe-aera/safe-area';
 import { FixedView } from '@/components/ui/fixed-view/fixed-view';
+import { z } from 'zod';
+
+const PersonSchema = z.object({
+  name: z
+    .string()
+    .min(3, {
+      message: '用户名至少3个字符'
+    })
+    .max(10, {
+      message: '用户名最多10个字符'
+    }),
+  age: z.number().min(0).max(100),
+  email: z.string().email(),
+  password: z.string().min(6).max(12)
+});
 
 export default function Index() {
   const [open, setOpen] = useState(false);
@@ -16,6 +31,24 @@ export default function Index() {
 
   console.log(name);
 
+  const onTestValidate = () => {
+    const validateRes = PersonSchema.safeParse({
+      name: '12',
+      age: 121,
+      email: '123@qq.com',
+      password: '12234243'
+    });
+    if (!validateRes.success) {
+      const error = validateRes.error.formErrors;
+      console.log(error.fieldErrors);
+      const errorKeys = Object.keys(error.fieldErrors);
+      console.log(errorKeys[0]);
+      return;
+    }
+
+    console.log(validateRes.data);
+  };
+
   useLoad(() => {
     console.log('Page loaded.');
   });
@@ -24,7 +57,7 @@ export default function Index() {
     <View className='index'>
       <View>123</View>
       <View>123</View>
-      <View>123</View>
+      <View onClick={onTestValidate}>test</View>
       <View className=''>123</View>
       <View>123</View>
       <View>123</View>

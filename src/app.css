@@ -59,9 +59,3 @@ button {
   padding: 0;
   font: inherit;
 }
-view,
-text,
-button:after,button:before{
-  content:'';
-  content:none;
-}

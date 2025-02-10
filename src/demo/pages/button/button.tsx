@@ -1,13 +1,18 @@
-import { View } from '@tarojs/components';
+import { View, Button as TaroButton } from '@tarojs/components';
 import { Button } from '@/components/ui/button/button';
 import { Block } from '@/demo/components/block';
 import { Popup, PopupBackdrop, PopupContent } from '@/components/ui/popup';
 import React from 'react';
+import { Navbar, NavBarLeft, NavBarTitle } from '@/components/ui/navbar/navbar';
 
 export default function ButtonPage() {
   const [open, setOpen] = React.useState(false);
   return (
     <View>
+      <Navbar border>
+        <NavBarLeft>返回</NavBarLeft>
+        <NavBarTitle>Button 按钮</NavBarTitle>
+      </Navbar>
       <Block title='按钮变体'>
         <Button>默认按钮</Button>
         <Button variant='destructive'>主要按钮</Button>
@@ -34,6 +39,7 @@ export default function ButtonPage() {
           链接按钮
         </Button>
       </Block>
+      <TaroButton>123</TaroButton>
       <Block title='按钮形状'>
         <Button onClick={() => setOpen(true)}>默认按钮</Button>
         <Button shape='circle'>默认按钮</Button>

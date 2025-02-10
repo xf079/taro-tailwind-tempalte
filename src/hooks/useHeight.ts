@@ -13,21 +13,18 @@ export const useHeight = (elementOrRef: any, deps?: DependencyList) => {
     getRect(elementOrRef)
       .then((rect) => rect?.height)
       .then((val) => {
-        console.log('val------',val)
         if (val !== heightRef.current) {
-          console.log('val', heightRef.current);
           heightRef.current = val;
           _setHeight(val);
         }
       });
   }, [height]);
 
-  // useRenderedEffect(() => {
-  //   setHeight();
-  // }, deps);
+  useRenderedEffect(() => {
+    setHeight();
+  }, deps);
 
   useMount(() => {
-    console.log('zheli')
     nextTick(setHeight);
   });
 

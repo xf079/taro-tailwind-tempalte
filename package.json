@@ -39,6 +39,7 @@
   "author": "xfo79k@gmail.com",
   "dependencies": {
     "@babel/runtime": "^7.24.4",
+    "@hookform/resolvers": "^3.10.0",
     "@tarojs/components": "4.0.8",
     "@tarojs/helper": "4.0.8",
     "@tarojs/plugin-framework-react": "4.0.8",
@@ -63,8 +64,10 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-fast-compare": "^3.2.2",
+    "react-hook-form": "^7.54.2",
     "react-transition-group": "^4.4.5",
-    "tailwind-merge": "^2.5.2"
+    "tailwind-merge": "^2.5.2",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@babel/core": "^7.24.4",

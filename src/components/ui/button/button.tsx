@@ -55,7 +55,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <TaroButton
         ref={ref}
-        className={cn(buttonVariants({ variant, size, block, shape, disabled, className }))}
+        className={cn(buttonVariants({ variant, size, block, shape, disabled }), className)}
         {...props}
       />
     );
